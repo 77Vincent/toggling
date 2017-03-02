@@ -1,3 +1,3 @@
-var toggling = function() {
+var toggling = function toggling() {
 
-}
+};
