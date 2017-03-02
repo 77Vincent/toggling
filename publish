@@ -1,0 +1,4 @@
+npm run uglify
+git add .
+git commit -m "publish"
+git push
