@@ -1,0 +1,29 @@
+{
+  "name": "toggling",
+  "version": "0.0.0",
+  "description": "Element's status toggle in browser",
+  "main": "toggling.js",
+  "scripts": {
+    "test": "eslint toggling.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/77Vincent/toggling.git"
+  },
+  "keywords": [
+    "toggle",
+    "element",
+    "DOM"
+  ],
+  "author": "77Vincent",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/77Vincent/toggling/issues"
+  },
+  "homepage": "https://github.com/77Vincent/toggling#readme",
+  "devDependencies": {
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0"
+  }
+}
