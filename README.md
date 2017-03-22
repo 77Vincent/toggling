@@ -49,7 +49,7 @@ new Toggling({
 * Target could also be declared in trigger element in markup:
 
 ```html
-<div class="this-is-trigger-element" data-toggling="selector">trigger</div>
+<div data-toggling="this-is-target-selector">This is trigger element</div>
 ```
 
 ##### handler: Function
