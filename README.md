@@ -1,6 +1,7 @@
 # Toggling
 
 [![Build Status](https://travis-ci.org/77Vincent/toggling.svg?branch=master)](https://travis-ci.org/77Vincent/toggling)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Element's state toggling in browser
 
@@ -38,7 +39,7 @@ new Toggling({
 
 ## API
 
-#### Configurations
+### Configurations
 ##### trigger: String
 
 * Accept any types of selector, multiple elements will be returned if found.
@@ -46,33 +47,34 @@ new Toggling({
 
 * Accept any types of selectors but only one element will be returned if found.
 * Target will be first looked for elements that either are adjacent or descendant to the trigger elements.
-* Target could also be declared in trigger element in template:
+* Target could also be declared in trigger element in markup:
 ```html
 <div class="this-is-trigger-element" data-toggling="selector">
 ```
 
 ##### handler: Function
 
-* There are 2 default given arrguments: tar, tri
+* There are 2 default passed arrguments: tar, tri
 * tar is the bound target element
 * tri is the bound trigger element / elements
 
 ##### event: String
 
+* Event to trigger the event handler
 * Default: click
 
 ##### useCapture: Boolean
 
 * Default: false
 
-#### Instance functions
+### Instance functions
 ##### disable()
 
-> Remove all event listener from trigger elements.
+* Remove all event listener from trigger elements.
 
 ```js
 var toggling = new Toggling({
-    // parameters...
+    // configurations...
 });
 
 toggling.disable();
@@ -92,59 +94,34 @@ new Toggling({
 
 ##### enable()
 
-> Bind event listener to trigger elements.
+* Bind event listener to triggers again.
 
 ```js
-// Let's say you disabled an instance before
 toggling.disable();
-
+// Let's say you disabled an instance first
 ...
 
-// You can enable it again.
 toggling.enable();
+// Then you can enable it again.
 ```
 
-##### show(el)
+##### show(element)
+* Let the passed element display="block".
 
-> Display the given element
+##### hide(element)
+* Let the passed element display="none".
 
-el: native DOM element
+##### toggle(element)
+* Toggle the passed element.
 
-##### hide(el)
-
-> Hide the given element
-
-el: native DOM element
-
-##### toggle(el)
-
-> Toggle the given element
-
-el: native DOM element
-
-##### addClass(el, className)
-
-> Add class name to the given element
-
-el: native DOM element
-
-className: string
+##### addClass(element, className)
+* Add className to element.
 
 ##### removeClass(el, className)
-
-> Remove class name from the given element
-
-el: native DOM element
-
-className: string
+* Remove className from element.
 
 ##### toggleClass(el, className)
-
-> Toggle class name from the given element
-
-el: native DOM element
-
-className: string
+* Toggle className from element.
 
 ## Compatibility
 IE 9+
