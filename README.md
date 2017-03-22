@@ -40,37 +40,31 @@ new Toggling({
 
 #### Configurations
 
-##### trigger: string
+##### trigger: String
 
-> Selector of element that event listener is bound to.
+* Accept any types of selector, multiple elements will be returned if found.
 
-* Accept any types of selector, multiple elements will be used if found.
+##### target: String
 
-##### target: string
-
-> Selector of element that event handler is bound to.
-
-* Accept any types of selectors but only one element will be used if found.
+* Accept any types of selectors but only one element will be returned if found.
 * Target will be first looked for elements that either are adjacent or descendant to the trigger elements.
-* Target could also be presented in template instead of being defined in javascript.
+* Target could also be declared in template with 
 
-##### handler: function
+```html
+<div data-toggling="selector">
+```
 
-> Function to be called after event is triggered.
+##### handler: Function
 
 * There are 2 default given arrguments: tar, tri
 * tar is the bound target element
 * tri is the bound trigger element / elements
 
-##### event: string
-
-> Event that will be listened to.
+##### event: String
 
 * Default: click
 
 ##### useCapture: Boolean
-
-> If use capture mode in addEventListener
 
 * Default: false
 
