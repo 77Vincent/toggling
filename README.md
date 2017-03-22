@@ -1,4 +1,4 @@
-# toggling
+# Toggling
 
 [![Build Status](https://travis-ci.org/77Vincent/toggling.svg?branch=master)](https://travis-ci.org/77Vincent/toggling)
 
@@ -15,18 +15,24 @@ npm install --save toggling
 ##### Import
 
 ```js
-import 'Toggling';
+import 'toggling';
+
+// or
+
+var Toggling = require('toggling');
 ```
 
 ## Instantiate
 
 ```js
 new Toggling({
-    trigger: 'trigger-selector',
-    target: 'target-selector',
-    handler: function(tar, tri) {
+    trigger: 'trigger-selector',    // required
+    target: 'target-selector',      // required
+    handler: function(tar, tri) {   // required
         this.toggle(tar);
-    }
+    },
+    event: 'click'                  // optional
+    useCapture: false               // optional
 });
 ```
 
