@@ -110,11 +110,11 @@ Toggling.prototype = {
           // Finally look up through out document
           : document.querySelector(data);
 
-      // Only run when target element is found
-      if (this.target !== null) {
-        this.handler.push(closure.bind(this, this.target, this.trigger[i], excluded));
-        this.trigger[i].addEventListener(this.configurations.event, this.handler[i], this.configurations.useCapture);
-      }
+      // Only run the rest when target element is found
+      if (!this.target) break;
+
+      this.handler.push(closure.bind(this, this.target, this.trigger[i], excluded));
+      this.trigger[i].addEventListener(this.configurations.event, this.handler[i], this.configurations.useCapture);
     }
   },
 
