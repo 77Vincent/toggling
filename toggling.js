@@ -111,10 +111,10 @@ Toggling.prototype = {
           : document.querySelector(data);
 
       // Only run the rest when target element is found
-      if (!this.target) break;
-
-      this.handler.push(closure.bind(this, this.target, this.trigger[i], excluded));
-      this.trigger[i].addEventListener(this.configurations.event, this.handler[i], this.configurations.useCapture);
+      if (this.target) {
+        this.handler.push(closure.bind(this, this.target, this.trigger[i], excluded));
+        this.trigger[i].addEventListener(this.configurations.event, this.handler[i], this.configurations.useCapture);
+      }
     }
   },
 
