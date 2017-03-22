@@ -9,7 +9,6 @@ Element's state toggling in browser
 <a href="http://www.77webtech.com/toggling/">Demo page</a>
 
 ## Installation
-
 ##### NPM
     
 ```sh
@@ -23,7 +22,6 @@ npm install --save toggling
 ```
 
 ## Instantiate
-
 ```js
 import 'toggling';
 
@@ -41,19 +39,16 @@ new Toggling({
 ## API
 
 #### Configurations
-
 ##### trigger: String
 
 * Accept any types of selector, multiple elements will be returned if found.
-
 ##### target: String
 
 * Accept any types of selectors but only one element will be returned if found.
 * Target will be first looked for elements that either are adjacent or descendant to the trigger elements.
-* Target could also be declared in template with 
-
+* Target could also be declared in trigger element in template:
 ```html
-<div data-toggling="selector">
+<div class="this-is-trigger-element" data-toggling="selector">
 ```
 
 ##### handler: Function
@@ -71,7 +66,6 @@ new Toggling({
 * Default: false
 
 #### Instance functions
-
 ##### disable()
 
 > Remove all event listener from trigger elements.
@@ -153,5 +147,4 @@ el: native DOM element
 className: string
 
 ## Compatibility
-
 IE 9+
