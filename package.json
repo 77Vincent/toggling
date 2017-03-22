@@ -1,12 +1,14 @@
 {
   "name": "toggling",
   "version": "0.0.0",
-  "description": "Element's status toggle in browser",
-  "main": "toggling.js",
+  "description": "Element's status toggling in browser",
+  "main": "toggling.min.js",
   "scripts": {
     "eslint": "esw -w toggling.js",
-    "uglify": "uglifyjs toggling.js -m -o toggling.min.js",
-    "test": "eslint toggling.js"
+    "server": "http-server -o -s -c-1",
+    "start": "concurrently \"npm run eslint\" \"npm run server\"",
+    "test": "eslint toggling.js",
+    "uglify": "uglifyjs toggling.js -m -o toggling.min.js"
   },
   "repository": {
     "type": "git",
@@ -15,7 +17,10 @@
   "keywords": [
     "toggle",
     "element",
-    "DOM"
+    "DOM",
+    "hide",
+    "show",
+    "independent"
   ],
   "author": "77Vincent",
   "license": "MIT",
@@ -24,8 +29,11 @@
   },
   "homepage": "https://github.com/77Vincent/toggling#readme",
   "devDependencies": {
+    "concurrently": "^3.4.0",
     "eslint": "^3.16.1",
     "eslint-watch": "^3.0.0",
+    "http-server": "^0.9.0",
+    "scaffold.css": "^1.1.0",
     "uglify-js": "^2.8.4"
   }
 }

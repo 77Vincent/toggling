@@ -1,3 +1,2 @@
 npm install
-open index.html
-npm run eslint
+npm start

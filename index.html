@@ -1,17 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Toggling</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Toggling</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="node_modules/scaffold.css/scaffold.css">
+  <link rel="stylesheet" href="demo/googlecode.css">
+  <link rel="stylesheet" type="text/css" href="demo/demo.css">
+  <script src="demo/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="test"></div>
+<div class="title">
+  <h1>Toggling</h1>
+</div>
+
+<div class="container">
+  <h2>One trigger on one target</h2>
+
+  <div class="wrapper">
+    <div class="trigger" id="trigger_foo">#trigger_foo</div>
+
+<pre id="target_foo"><code>new Toggling({
+  trigger: '#trigger_foo',
+  target: '#target_foo',
+  handler: function(tar, tri) {
+    this.toggle(tar);
+  }
+});
+</code></pre>
+  </div>
+
+</div>
+
+<div class="container">
+  <h2>Multiple triggers on one target</h2>
+
+  <div class="wrapper">
+    <div class="clearfix">
+      <div class="trigger open">.open</div>
+      <div class="trigger close" data-toggling="#target_bar">.close</div>
+      <div class="trigger toggle" data-toggling="#target_bar">.toggle</div>
     </div>
-    <script src="toggling.js"></script>
+
+<pre id="target_bar"><code>new Toggling({
+  trigger: '.open',
+  target: '#target_bar',
+  handler: function(tar) {
+    this.show(tar);
+  }
+});
+
+new Toggling({
+  trigger: '.close',
+  handler: function(tar) {
+    this.hide(tar);
+  }
+});
+
+new Toggling({
+  trigger: '.toggle',
+  handler: function(tar) {
+    this.toggle(tar);
+  }
+});
+
+
+// Target could also be bound in template
+// By using custom attribute:
+// data-toggling='target_selector'
+// Toggling will first look for target that is defined in template
+</code></pre>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Self-triggered</h2>
+
+  <div class="trigger" id="trigger_self">#trigger_self</div>
+
+<pre style="display: block"><code>new Toggling({
+  trigger: '#trigger_self',
+  target: 'self',
+  handler: function() {
+    this.toggleClass(this.target, 'active');
+  }
+});
+
+
+// If target is specified as 'self'
+// The target element will be trigger element itself.
+</code></pre>
+</div>
+
+<div class="container">
+  <h2>Toggling first looks for adjacent or descendant target element according to trigger element. So that you can use it for multiple trigger-target pairs with same selectors.</h2>
+
+  <div class="clearfix">
+    <div class="col col-6">
+      <div class="trigger trigger-scope">.trigger</div>
+      <div class="target target-scope">.target</div>
+    </div>
+
+    <div class="col col-6">
+      <div class="trigger trigger-scope">.trigger</div>
+      <div class="target target-scope">.target</div>
+    </div>
+  </div>
+
+<pre style="display: block"><code>new Toggling({
+  trigger: '.trigger',
+  target: '.target',
+  handler: function(tar, tri) {
+    this.toggleClass(tri, 'active');
+    this.toggle(tar);
+  }
+});
+</code></pre>
+</div>
+
+<div class="container">
+  <h2>Close popup by triggering on window</h2>
+
+  <div class="wrapper">
+    <div class="trigger" id="trigger-exclude">#trigger_baz</div>
+
+<pre id="target-exclude"><code>new Toggling({
+  trigger: '#trigger_baz',
+  target: '#target_baz',
+  handler: function(tar, tri) {
+    this.toggle(tar);
+  }
+});
+
+new Toggling({
+  trigger: 'html',
+  excluded: '#trigger_baz',
+  target: '#target_baz',
+  handler: function(tar, tri) {
+    this.hide(tar);
+  }
+});
+</code></pre>
+  </div>
+</div>
+
+<div class="container">
+  <h2>A common full screen popup demo</h2>
+
+  <div class="trigger" id="popup-trigger">Trigger</div>
+
+  <div id="popup-target">
+    <div class="table-cell">
+      <div class="content">
+        <h2>Target</h2>
+        <h3>You can close this pop-up box by clicking anywhere on screen but not the this area. Because this element has been excluded from triggering the event.</h3>
+
+<pre style="display: block"><code>new Toggling({
+  trigger: '#trigger_popup',
+  target: '#target_popup',
+  handler: function() {
+    this.addClass(this.target, 'active');
+  }
+});
+
+new Toggling({
+  trigger: '#target_popup',
+  target: 'self',
+  excluded: '.content',
+  handler: function() {
+    this.removeClass(this.target, 'active');
+  }
+});
+</code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="toggling.js"></script>
+<script src="demo/demo.js"></script>
 </body>
 </html>
