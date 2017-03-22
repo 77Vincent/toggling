@@ -1,26 +1,34 @@
 # toggling
 
+[![Build Status](https://travis-ci.org/77Vincent/toggling.svg?branch=master)](https://travis-ci.org/77Vincent/toggling)
+
 Element's state toggling in browser
 
 ## Installation
 
 ##### NPM
-
-    npm install --save toggling
+    
+```sh
+npm install --save toggling
+```
 
 ##### Import
 
-    import 'Toggling';
+```js
+import 'Toggling';
+```
 
 ## Instantiate
 
-    new Toggling({
-        trigger: 'trigger-selector',
-        target: 'target-selector',
-        handler: function(tar, tri) {
-            this.toggle(tar);
-        }
-    });
+```js
+new Toggling({
+    trigger: 'trigger-selector',
+    target: 'target-selector',
+    handler: function(tar, tri) {
+        this.toggle(tar);
+    }
+});
+```
 
 ## API
 
@@ -66,35 +74,39 @@ Element's state toggling in browser
 
 > Remove all event listener from trigger elements.
 
-    var toggling = new Toggling({
-        // parameters...
-    });
-    
-    toggling.disable();
-    
-    // Or can be called inside handler:
+```js
+var toggling = new Toggling({
+    // parameters...
+});
 
-    new Toggling({
-        trigger: ...,
-        target: ...,
-        handler: function() {
-            this.disable(); 
-        }
-    });
-    
-    // This instance will be disabled after being triggered once.
+toggling.disable();
+
+// Or can be called inside handler:
+
+new Toggling({
+    trigger: ...,
+    target: ...,
+    handler: function() {
+        this.disable(); 
+    }
+});
+
+// This instance will be disabled after being triggered once.
+```
 
 ##### enable()
 
 > Bind event listener to trigger elements.
-    
-    // Let's say you disabled an instance before
-    toggling.disable();
-    
-    ...
-    
-    // You can enable it again.
-    toggling.enable();
+
+```js
+// Let's say you disabled an instance before
+toggling.disable();
+
+...
+
+// You can enable it again.
+toggling.enable();
+```
 
 ##### show(el)
 
