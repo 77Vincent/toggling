@@ -49,23 +49,21 @@ new Toggling({
 * Target could also be declared in trigger element in markup:
 
 ```html
-<div class="this-is-trigger-element" data-toggling="selector">
+<div class="this-is-trigger-element" data-toggling="selector">trigger</div>
 ```
 
 ##### handler: Function
-* There are 2 default passed arrguments: tar, tri
-* tar is the bound target element
-* tri is the bound trigger element / elements
+* There are 2 default passed arrguments to be accessed: tar, tri
 
 ```js
-handlder: function(tar, tri) {
+handler: function(tar, tri) {
     // tar is the found target element
     // tri is the current trigger element
 }
 ```
 
 ##### event: String
-* Event to trigger the event handler
+* Event to trigger the handler
 * Default: click
 
 ##### useCapture: Boolean
@@ -81,9 +79,11 @@ var toggling = new Toggling({
 });
 
 toggling.disable();
+```
 
-// Or can be called inside handler:
+* Or could be called inside handler:
 
+```js
 new Toggling({
     trigger: ...,
     target: ...,
