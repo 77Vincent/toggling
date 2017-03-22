@@ -4,6 +4,10 @@
 
 Element's state toggling in browser
 
+## Demo
+
+<a href="http://www.77webtech.com/toggling/">Demo page</a>
+
 ## Installation
 
 ##### NPM
@@ -12,19 +16,17 @@ Element's state toggling in browser
 npm install --save toggling
 ```
 
-##### Import
+##### CDN
 
-```js
-import 'toggling';
-
-// or
-
-var Toggling = require('toggling');
+```html
+<script src="https://raw.githubusercontent.com/77Vincent/toggling/master/toggling.min.js"></script>
 ```
 
 ## Instantiate
 
 ```js
+import 'toggling';
+
 new Toggling({
     trigger: 'trigger-selector',    // required
     target: 'target-selector',      // required
