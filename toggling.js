@@ -17,18 +17,18 @@ var Toggling = function(configurations) {
   this.configurations.event = configurations.event ? configurations.event : 'click';
   this.configurations.useCapture = configurations.useCapture ? configurations.useCapture : false;
 
-  // Array or triggers and handlers
+  // Array of triggers and handlers
   this.handler = [];
   this.trigger = Array.prototype.slice.call(document.querySelectorAll(configurations.trigger));
 
-  // Enable the instance
+  // Initialize
   this.enable();
 };
 
 // Prototypes
 Toggling.prototype = {
 
-  // Functions that could be used to manipulate DOM elements in handler.
+  // Functions that could be used to manipulate DOM elements
   hide: function hide(el) {
     el.style.display = 'none';
   },
@@ -77,47 +77,38 @@ Toggling.prototype = {
 
       // To prevent excluded element from triggering the event
       if (event.target !== excluded && !this.closest(event.target, excluded)) {
-
         this.configurations.handler.call(this, target, trigger);
       }
     };
 
     for (var i = 0; i < this.trigger.length; i++) {
-      var data = this.trigger[i].getAttribute('data-toggling');
 
-      // Target element will be first looked for elements that are either adjacent or descendant to the trigger elements
+      // First check if target is declared in template
+      // Then look for if declared in javascript
+      var data = this.trigger[i].getAttribute('data-toggling')
+        ? this.trigger[i].getAttribute('data-toggling')
+        : this.configurations.target;
+
+      // If no target is declared, stop and throw error
+      if (!data) throw new Error('No target is given, specify target either with custom attribute in template or in Javascript');
+
+      // Target element will be first looked for elements that are either adjacent or descendant to the trigger element
       var parent = this.trigger[i].parentNode;
 
       // Get excluded element that will not trigger the event
       var excluded = parent.querySelector(this.configurations.excluded);
 
-      // If target is bound in custom attribute in template
-      if (data !== null) {
-        if (data === 'self') {
-          this.target = this.trigger[i];
-        } else {
-          this.target = parent.querySelector(data)
-            ? parent.querySelector(data)
-            : document.querySelector(data);
-        }
-      } else if (this.configurations.target !== undefined) {
+      // First check if target is specified as 'self'
+      // If so, target will be trigger
+      this.target = data === 'self'
+        ? this.trigger[i]
 
-        // If target is not bound in custom attribute
-        // Then needs to be specified in javascript
-        if (this.configurations.target === 'self') {
+        // Then look for adjacent or descendant element
+        : parent.querySelector(data)
+          ? parent.querySelector(data)
 
-          // If target is specified as self, then target will be trigger
-          this.target = this.trigger[i];
-        } else {
-          this.target = parent.querySelector(this.configurations.target)
-            ? parent.querySelector(this.configurations.target)
-            : document.querySelector(this.configurations.target);
-        }
-      } else {
-
-        // No target is given
-        throw new Error('No target is given, specify target either with custom attribute in template or in Javascript');
-      }
+          // Finally look up through out document
+          : document.querySelector(data);
 
       // Only run when target element is found
       if (this.target !== null) {

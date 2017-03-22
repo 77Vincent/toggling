@@ -8,14 +8,6 @@ var foo = new Toggling({
   }
 });
 
-// Declare target in markup
-var foz = new Toggling({
-  trigger: '#trigger_foz',
-  handler: function(tar, tri) {
-    this.toggle(tar);
-  }
-});
-
 // Multiple triggers with single unique target
 var open = new Toggling({
   trigger: '.open',
@@ -45,6 +37,14 @@ var self = new Toggling({
   target: 'self',
   handler: function() {
     this.toggleClass(this.target, 'active');
+  }
+});
+
+// Declare target in markup
+var foz = new Toggling({
+  trigger: '#trigger_foz',
+  handler: function(tar, tri) {
+    this.toggle(tar);
   }
 });
 
