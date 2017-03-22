@@ -7,6 +7,7 @@ html {
 body {
   margin: 0 auto;
   max-width: 600px;
+  padding-bottom: 60px;
 }
 
 .container {
@@ -23,7 +24,25 @@ body {
 }
 
 .title h1 {
-  font-size: 3em;
+  font-size: 3.3em;
+}
+
+.github {
+  display: block;
+  margin: 0 auto;
+  max-width: 50px;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
 }
 
 /****** code highlighting ******/

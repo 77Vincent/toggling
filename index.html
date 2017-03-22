@@ -15,7 +15,7 @@
 
 <body>
 <div class="title">
-  <h1>Toggling</h1>
+  <h1><a href="https://github.com/77Vincent/toggling">Toggling</a></h1>
 </div>
 
 <div class="container">
@@ -33,7 +33,6 @@
 });
 </code></pre>
   </div>
-
 </div>
 
 <div class="container">
@@ -56,6 +55,7 @@
 
 new Toggling({
   trigger: '.close',
+  target: '#target_bar',
   handler: function(tar) {
     this.hide(tar);
   }
@@ -63,22 +63,17 @@ new Toggling({
 
 new Toggling({
   trigger: '.toggle',
+  target: '#target_bar',
   handler: function(tar) {
     this.toggle(tar);
   }
 });
-
-
-// Target could also be bound in template
-// By using custom attribute:
-// data-toggling='target_selector'
-// Toggling will first look for target that is defined in template
 </code></pre>
   </div>
 </div>
 
 <div class="container">
-  <h2>Self-triggered</h2>
+  <h2>Self-trigger, passing 'self' as the target value</h2>
 
   <div class="trigger" id="trigger_self">#trigger_self</div>
 
@@ -89,11 +84,23 @@ new Toggling({
     this.toggleClass(this.target, 'active');
   }
 });
-
-
-// If target is specified as 'self'
-// The target element will be trigger element itself.
 </code></pre>
+</div>
+
+<div class="container">
+  <h2>Target could also be declared in trigger element in markup using custom attribute</h2>
+
+  <div class="wrapper">
+    <div class="trigger" id="trigger_foz" data-toggling="#target_foz">#trigger_foz</div>
+
+<pre id="target_foz"><code>new Toggling({
+  trigger: '#trigger_foz',
+  handler: function(tar, tri) {
+    this.toggle(tar);
+  }
+});
+</code></pre>
+  </div>
 </div>
 
 <div class="container">
@@ -123,7 +130,7 @@ new Toggling({
 </div>
 
 <div class="container">
-  <h2>Close popup by triggering on window</h2>
+  <h2>Pass 'html' as trigger, so that you can now trigger the event ( Close popup ) by clicking anywhere on screen</h2>
 
   <div class="wrapper">
     <div class="trigger" id="trigger-exclude">#trigger_baz</div>
@@ -180,6 +187,8 @@ new Toggling({
     </div>
   </div>
 </div>
+
+<a class="github" href="https://github.com/77Vincent/toggling"> <img src="http://7xr7xo.com1.z0.glb.clouddn.com/icon-github.png"> <a>
 
 <script src="toggling.js"></script>
 <script src="demo/demo.js"></script>

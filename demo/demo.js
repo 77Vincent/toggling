@@ -1,8 +1,16 @@
 
-// Single unique trigger with single unique target
+// One trigger on one target
 var foo = new Toggling({
   trigger: '#trigger_foo',
   target: '#target_foo',
+  handler: function(tar, tri) {
+    this.toggle(tar);
+  }
+});
+
+// Declare target in markup
+var foz = new Toggling({
+  trigger: '#trigger_foz',
   handler: function(tar, tri) {
     this.toggle(tar);
   }
