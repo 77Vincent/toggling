@@ -6,12 +6,11 @@
 Element's state toggling in browser
 
 ## Demo
-
 <a href="http://www.77webtech.com/toggling/">Demo page</a>
 
 ## Installation
 ##### NPM
-    
+
 ```sh
 npm install --save toggling
 ```
@@ -23,6 +22,7 @@ npm install --save toggling
 ```
 
 ## Instantiate
+
 ```js
 import 'toggling';
 
@@ -41,35 +41,38 @@ new Toggling({
 
 ### Configurations
 ##### trigger: String
+* Multiple elements will be returned if found.
 
-* Accept any types of selector, multiple elements will be returned if found.
 ##### target: String
-
-* Accept any types of selectors but only one element will be returned if found.
+* Only one single element will be returned if found.
 * Target will be first looked for elements that either are adjacent or descendant to the trigger elements.
 * Target could also be declared in trigger element in markup:
+
 ```html
 <div class="this-is-trigger-element" data-toggling="selector">
 ```
 
 ##### handler: Function
-
 * There are 2 default passed arrguments: tar, tri
 * tar is the bound target element
 * tri is the bound trigger element / elements
 
-##### event: String
+```js
+handlder: function(tar, tri) {
+    // tar is the found target element
+    // tri is the current trigger element
+}
+```
 
+##### event: String
 * Event to trigger the event handler
 * Default: click
 
 ##### useCapture: Boolean
-
 * Default: false
 
 ### Instance functions
 ##### disable()
-
 * Remove all event listener from trigger elements.
 
 ```js
@@ -93,13 +96,11 @@ new Toggling({
 ```
 
 ##### enable()
-
 * Bind event listener to triggers again.
 
 ```js
 toggling.disable();
 // Let's say you disabled an instance first
-...
 
 toggling.enable();
 // Then you can enable it again.
