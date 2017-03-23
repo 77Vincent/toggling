@@ -71,6 +71,7 @@ handler: function(tar, tri) {
 * Default: click
 
 ##### useCapture: Boolean
+* If capture or bubbling mode will be used.
 * Default: false
 
 ### Instance functions
@@ -142,4 +143,4 @@ Target is usually the object on which handler will operate, which could also be 
 
 Besides, sometimes we want to bind event to an element but not to its certain child element, for instance we want to close an pop-up box by clicking anywhere on the screen but not a certain area, then we can bind event-handler to 'html' element, which represents the whole document, then exclude a certain area from the event binding.
 
-The goal of creating this module is to giving a easy and robust solution for this kind of feature. So that developers don't need to write similar codes repeatly from project to project and works without any javascript frameworks. But if you want to achieve more fancy effect in your handler, maybe jQuery would be the best partner.
+The goal of creating this module is to giving a simple, robust and versatile solution for this kind of feature. So that developers don't need to write similar codes repeatly. It provides you some very basic DOM-manipulation methods like show or hide element, add or remove class, without any javascript frameworks. But if you want to achieve more fancy effect in your handler, maybe jQuery would be the best partner.
