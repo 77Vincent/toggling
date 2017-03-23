@@ -41,16 +41,20 @@ new Toggling({
 
 ### Configurations
 ##### trigger: String
-* Multiple elements will be returned if found.
+* Multiple elements will be returned if found, it's fine if no element is found.
 
 ##### target: String
-* Only one single element will be returned if found.
-* Target will be first looked for elements that either are adjacent or descendant to the trigger elements.
+* Only one single element will be returned if found, it's fine if no element is found.
+* Will be first looked for elements that either are adjacent or descendant to the trigger element.
 * Target could also be declared in trigger element in markup:
 
 ```html
 <div data-toggling="this-is-target-selector">This is trigger element</div>
 ```
+
+##### excluded: String
+* Elements that will be excluded from triggering the event
+* Will be only looked for elements that either are adjacent or descendant to the trigger element.
 
 ##### handler: Function
 * There are 2 default passed arrguments to be accessed: tar, tri
@@ -126,3 +130,16 @@ toggling.enable();
 
 ## Compatibility
 IE 9+
+
+## Motivation
+As we have a lot of pop-up-box features or various kinds of show-or-hide features, the core concept behind is the change of status. 
+
+The model could be abstracted as "Trigger-Event-Handler-Target". 
+
+Trigger is the object on which event is listening to. 
+Handler will take place when event is fired. 
+Target is usually the object on which handler will operate, which could also be trigger or other elements. 
+
+Besides, sometimes we want to bind event to an element but not to its certain child element, for instance we want to close an pop-up box by clicking anywhere on the screen but not a certain area, then we can bind event-handler to 'html' element, which represents the whole document, then exclude a certain area from the event binding.
+
+The goal of creating this module is to giving a easy and robust solution for this kind of feature. So that developers don't need to write similar codes repeatly from project to project and works without any javascript frameworks. But if you want to achieve more fancy effect in your handler, maybe jQuery would be the best partner.
