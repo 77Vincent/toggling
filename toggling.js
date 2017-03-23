@@ -85,9 +85,7 @@ Toggling.prototype = {
 
       // First check if target is declared in template
       // Then look for if declared in javascript
-      var data = this.trigger[i].getAttribute('data-toggling')
-        ? this.trigger[i].getAttribute('data-toggling')
-        : this.configurations.target;
+      var data = this.trigger[i].getAttribute('data-toggling') || this.configurations.target;
 
       // If no target is declared, stop and throw error
       if (!data) throw new Error('No target is given, specify target either with custom attribute in template or in Javascript');
