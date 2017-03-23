@@ -13,9 +13,9 @@ var Toggling = function(configurations) {
   this.configurations = configurations;
 
   // Set default configurations
-  this.configurations.handler = configurations.handler ? configurations.handler : function() {};
-  this.configurations.event = configurations.event ? configurations.event : 'click';
-  this.configurations.useCapture = configurations.useCapture ? configurations.useCapture : false;
+  this.configurations.handler = configurations.handler || function() {};
+  this.configurations.event = configurations.event || 'click';
+  this.configurations.useCapture = configurations.useCapture || false;
 
   // Array of triggers and handlers
   this.handler = [];
@@ -100,15 +100,7 @@ Toggling.prototype = {
 
       // First check if target is specified as 'self'
       // If so, target will be trigger
-      this.target = data === 'self'
-        ? this.trigger[i]
-
-        // Then look for adjacent or descendant element
-        : parent.querySelector(data)
-          ? parent.querySelector(data)
-
-          // Finally look up through out document
-          : document.querySelector(data);
+      this.target = data === 'self' ? this.trigger[i] : parent.querySelector(data) || document.querySelector(data);
 
       // Only run the rest when target element is found
       if (this.target) {
