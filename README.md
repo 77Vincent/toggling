@@ -32,6 +32,7 @@ new Toggling({
     handler: function(tar, tri) {   // required
         this.toggle(tar);
     },
+    excluded: 'element-selector',   // optional
     event: 'click'                  // optional
     useCapture: false               // optional
 });
