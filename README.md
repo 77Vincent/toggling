@@ -54,7 +54,8 @@ new Toggling({
 ```
 
 ##### excluded: String
-* Elements that will be excluded from triggering the event
+* Element that will be excluded from triggering the event
+* Only accept one selector.
 * Will be only looked for elements that either are adjacent or descendant to the trigger element.
 
 ##### handler: Function
@@ -77,7 +78,7 @@ handler: function(tar, tri) {
 
 ### Instance functions
 ##### disable()
-* Remove all event listener from trigger elements.
+* Remove all event listener from triggering elements.
 
 ```js
 var toggling = new Toggling({
