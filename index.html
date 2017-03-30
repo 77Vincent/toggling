@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <title>Toggling</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="">
+  <meta name="description" content="Element's state toggling in browser">
+  <meta name="author" content="77Vincent">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="demo/scaffold.css">
   <link rel="stylesheet" type="text/css" href="demo/googlecode.css">
@@ -16,6 +17,7 @@
 <body>
 <div class="title">
   <h1><a href="https://github.com/77Vincent/toggling">Toggling</a></h1>
+  <h2 class="insert"></h2>
 </div>
 
 <div class="container">
@@ -45,7 +47,8 @@
       <div class="trigger toggle" data-toggling="#target_bar">.toggle</div>
     </div>
 
-<pre id="target_bar"><code>new Toggling({
+<pre id="target_bar"><code>// Open the target
+new Toggling({
   trigger: '.open',
   target: '#target_bar',
   handler: function(tar) {
@@ -53,6 +56,7 @@
   }
 });
 
+// Close the target
 new Toggling({
   trigger: '.close',
   target: '#target_bar',
@@ -61,6 +65,7 @@ new Toggling({
   }
 });
 
+// Toggle the target
 new Toggling({
   trigger: '.toggle',
   target: '#target_bar',
@@ -135,7 +140,8 @@ new Toggling({
   <div class="wrapper">
     <div class="trigger" id="trigger-exclude">#trigger_baz</div>
 
-<pre id="target-exclude"><code>new Toggling({
+<pre id="target-exclude"><code>// Open the target
+new Toggling({
   trigger: '#trigger_baz',
   target: '#target_baz',
   handler: function(tar, tri) {
@@ -143,6 +149,7 @@ new Toggling({
   }
 });
 
+// Close the target by clicking on html
 new Toggling({
   trigger: 'html',
   excluded: '#trigger_baz',
@@ -188,7 +195,14 @@ new Toggling({
   </div>
 </div>
 
-<a class="github" href="https://github.com/77Vincent/toggling"> <img src="http://7xr7xo.com1.z0.glb.clouddn.com/icon-github.png"> <a>
+<a class="github" href="https://github.com/77Vincent/toggling">
+  <img src="http://7xr7xo.com1.z0.glb.clouddn.com/icon-github.png">
+<a>
+
+<div class="container motivation">
+  <h2>Motivation</h2>
+  <p class="insert"></p>
+</div>
 
 <script src="toggling.js"></script>
 <script src="demo/demo.js"></script>

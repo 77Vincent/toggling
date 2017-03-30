@@ -93,3 +93,24 @@ new Toggling({
     this.removeClass(this.target, 'active');
   }
 });
+
+var ajax = function ajax(url, callback) {
+  var req = new XMLHttpRequest();
+
+  req.open('GET', url, true);
+  req.onreadystatechange = function() {
+    if (req.readyState !== 4 || req.status !== 200) return;
+    callback(req);
+  }
+  req.send(null);
+};
+
+ajax('https://raw.githubusercontent.com/77Vincent/toggling/master/README.md', function(req) {
+  var t =  req.responseText.split('Motivation')[1];
+  document.querySelector('.motivation .insert').innerHTML = t;
+});
+
+ajax('https://raw.githubusercontent.com/77Vincent/toggling/master/README.md', function(req) {
+  var t =  req.responseText.split('Demo')[0].split('MIT)')[1].split('##')[0];
+  document.querySelector('.title .insert').innerHTML = t;
+});
