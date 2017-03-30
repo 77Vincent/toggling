@@ -24,7 +24,7 @@ npm install --save toggling
 ## Instantiate
 
 ```js
-import 'toggling';
+import Toggling from 'toggling';
 
 new Toggling({
     trigger: 'trigger-selector',    // required
