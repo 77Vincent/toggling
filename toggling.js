@@ -36,7 +36,7 @@ Toggling.prototype = {
     el.style.display = 'block';
   },
   toggle: function toggle(el) {
-    if (el.style.display !== 'block') {
+    if (window.getComputedStyle(el).display === 'none') {
       this.show(el);
     } else {
       this.hide(el);
