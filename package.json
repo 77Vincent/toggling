@@ -1,6 +1,6 @@
 {
   "name": "toggling",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Element's status toggling in browser",
   "main": "toggling.min.js",
   "scripts": {

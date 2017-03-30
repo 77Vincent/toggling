@@ -94,7 +94,7 @@ new Toggling({
     trigger: ...,
     target: ...,
     handler: function() {
-        this.disable(); 
+        this.disable();
     }
 });
 
@@ -137,10 +137,10 @@ toggling.enable();
 IE 9+
 
 ## Motivation
-As we have a lot of pop-up features, the core concept behind is state changing. The goal of creating this module is to giving a simple, robust and versatile solution for this kind of feature. So that developers don't need to write similar codes repeatly. 
+As we have a lot of pop-up features, the core concept behind is state changing. The goal of creating this module is to giving a simple, robust and versatile solution for this kind of feature. So that developers don't need to write similar codes repeatly.
 
-The state changing model could be abstracted as "Trigger-Event-Handler-Target". 
+The state changing model could be abstracted as "Trigger-Event-Handler-Target".
 
-Besides, sometimes we want to bind event to an element but not to a certain element, for instance we want to close an pop-up box by clicking anywhere on the screen but not a certain area, then we can bind event to 'html' element, which represents the whole document, then exclude a certain area from the event binding.
+Besides, sometimes we don't want a certain child element to trigger the event, for instance we want to close an pop-up box by clicking anywhere on the screen but not a certain area, in toggling, then we can bind event to 'html' element, which represents the whole document, then exclude the certain element from event triggering.
 
-What's more, each toggling instance provides you some very basic DOM-manipulation methods like show or hide element, add or remove class, without any javascript frameworks. But if you want to achieve more fancy effect in your handler, maybe jQuery, prototype or some other javascript frameworks would be the best partner.
+What's more, each toggling instance provides you some very basic DOM-manipulation methods like show or hide element, add or remove class, which work without any javascript frameworks. But if you want to achieve more fancy effect in your handler, maybe jQuery, Prototype.js or some other javascript frameworks would be the best partner.
