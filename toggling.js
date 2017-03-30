@@ -60,12 +60,24 @@ Toggling.prototype = {
     // Check if a given element is child of another given element
     var node = el.parentNode;
 
-    while (node !== null) {
-      if (node === parent) {
-        return node;
+    if (typeof parent === 'string') {
+      while (node !== null) {
+        var result = node.parentNode.querySelector(parent);
+
+        if (result) {
+          return result;
+        }
+        node = node.parentNode;
       }
-      node = node.parentNode;
+    } else {
+      while (node !== null) {
+        if (node === parent) {
+          return true;
+        }
+        node = node.parentNode;
+      }
     }
+
     return null;
   },
 
