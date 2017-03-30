@@ -113,10 +113,10 @@ toggling.enable();
 ```
 
 ##### show(element)
-* Let the passed element display="block".
+* Display the passed element.
 
 ##### hide(element)
-* Let the passed element display="none".
+* Hide the passed element.
 
 ##### toggle(element)
 * Toggle the passed element.
@@ -124,24 +124,23 @@ toggling.enable();
 ##### addClass(element, className)
 * Add className to element.
 
-##### removeClass(el, className)
+##### removeClass(element, className)
 * Remove className from element.
 
-##### toggleClass(el, className)
+##### toggleClass(element, className)
 * Toggle className from element.
+
+##### closest(element, className)
+* Find the closest ancestor element to the passed element, according to the passed className.
 
 ## Compatibility
 IE 9+
 
 ## Motivation
-As we have a lot of pop-up-box features or various kinds of show-or-hide features, the core concept behind is the change of status. 
+As we have a lot of pop-up features, the core concept behind is state changing. The goal of creating this module is to giving a simple, robust and versatile solution for this kind of feature. So that developers don't need to write similar codes repeatly. 
 
-The model could be abstracted as "Trigger-Event-Handler-Target". 
+The state changing model could be abstracted as "Trigger-Event-Handler-Target". 
 
-Trigger is the object on which event is listening to. 
-Handler will take place when event is fired. 
-Target is usually the object on which handler will operate, which could also be trigger or other elements. 
+Besides, sometimes we want to bind event to an element but not to a certain element, for instance we want to close an pop-up box by clicking anywhere on the screen but not a certain area, then we can bind event to 'html' element, which represents the whole document, then exclude a certain area from the event binding.
 
-Besides, sometimes we want to bind event to an element but not to its certain child element, for instance we want to close an pop-up box by clicking anywhere on the screen but not a certain area, then we can bind event-handler to 'html' element, which represents the whole document, then exclude a certain area from the event binding.
-
-The goal of creating this module is to giving a simple, robust and versatile solution for this kind of feature. So that developers don't need to write similar codes repeatly. It provides you some very basic DOM-manipulation methods like show or hide element, add or remove class, without any javascript frameworks. But if you want to achieve more fancy effect in your handler, maybe jQuery would be the best partner.
+What's more, each toggling instance provides you some very basic DOM-manipulation methods like show or hide element, add or remove class, without any javascript frameworks. But if you want to achieve more fancy effect in your handler, maybe jQuery, prototype or some other javascript frameworks would be the best partner.
