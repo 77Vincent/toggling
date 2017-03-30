@@ -1,7 +1,7 @@
 {
   "name": "toggling",
   "version": "1.0.0",
-  "description": "Element's status toggling in browser",
+  "description": "Element's state toggling in browser",
   "main": "toggling.min.js",
   "scripts": {
     "eslint": "esw -w toggling.js",
@@ -16,6 +16,12 @@
   },
   "keywords": [
     "toggle",
+    "toggling",
+    "browser",
+    "jquery",
+    "popup",
+    "pop up",
+    "pop-up",
     "element",
     "DOM",
     "hide",
