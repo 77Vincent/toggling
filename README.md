@@ -6,7 +6,7 @@
 Element's state toggling in browser
 
 ## Demo
-<a href="https://github.com/77Vincent/toggling">Demo page</a>
+<a href="http://www.77webtech.com/toggling/">Demo page</a>
 
 ## Installation
 ##### NPM
