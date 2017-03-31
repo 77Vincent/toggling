@@ -4,7 +4,7 @@ html {
   line-height: 1.5;
 }
 
-body {
+.master-container {
   margin: 0 auto;
   max-width: 600px;
   padding-bottom: 60px;
@@ -31,10 +31,27 @@ p {
   font-size: 3.3em;
 }
 
-.github {
-  display: block;
-  margin: 0 auto;
+.icons-top {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: auto;
+}
+
+.icons-bottom {
+  text-align: center;
+}
+
+.icons-top .icon {
+  max-width: 30px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.icons-bottom .icon {
   max-width: 50px;
+  display: inline-block;
+  margin: 0 5px;
 }
 
 img {

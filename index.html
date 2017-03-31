@@ -15,193 +15,209 @@
 </head>
 
 <body>
-<div class="title">
-  <h1><a href="https://github.com/77Vincent/toggling">Toggling</a></h1>
-  <h2 class="insert"></h2>
-</div>
-
-<div class="container">
-  <h2>One trigger on one target</h2>
-
-  <div class="wrapper">
-    <div class="trigger" id="trigger_foo">#trigger_foo</div>
-
-<pre id="target_foo"><code>new Toggling({
-  trigger: '#trigger_foo',
-  target: '#target_foo',
-  handler: function(tar, tri) {
-    this.toggle(tar);
-  }
-});
-</code></pre>
+<div class="master-container">
+  <div class="title">
+    <h1><a href="https://github.com/77Vincent/toggling">Toggling</a></h1>
+    <h2 class="insert"></h2>
   </div>
-</div>
 
-<div class="container">
-  <h2>Multiple triggers on one target</h2>
+  <div class="icons-top">
+    <a class="icon" href="https://www.npmjs.com/package/toggling">
+      <img src="http://7xr7xo.com1.z0.glb.clouddn.com/icon-npm.png">
+    </a>
+    <a class="icon" href="https://github.com/77Vincent/toggling">
+      <img src="http://7xr7xo.com1.z0.glb.clouddn.com/icon-github.png">
+    </a>
+  </div>
 
-  <div class="wrapper">
+  <div class="container">
+    <h2>One trigger on one target</h2>
+
+    <div class="wrapper">
+      <div class="trigger" id="trigger_foo">#trigger_foo</div>
+
+  <pre id="target_foo"><code>new Toggling({
+    trigger: '#trigger_foo',
+    target: '#target_foo',
+    handler: function(tar, tri) {
+      this.toggle(tar);
+    }
+  });
+  </code></pre>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Multiple triggers on one target</h2>
+
+    <div class="wrapper">
+      <div class="clearfix">
+        <div class="trigger open">.open</div>
+        <div class="trigger close" data-toggling="#target_bar">.close</div>
+        <div class="trigger toggle" data-toggling="#target_bar">.toggle</div>
+      </div>
+
+  <pre id="target_bar"><code>// Open the target
+  new Toggling({
+    trigger: '.open',
+    target: '#target_bar',
+    handler: function(tar) {
+      this.show(tar);
+    }
+  });
+
+  // Close the target
+  new Toggling({
+    trigger: '.close',
+    target: '#target_bar',
+    handler: function(tar) {
+      this.hide(tar);
+    }
+  });
+
+  // Toggle the target
+  new Toggling({
+    trigger: '.toggle',
+    target: '#target_bar',
+    handler: function(tar) {
+      this.toggle(tar);
+    }
+  });
+  </code></pre>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Self-trigger, passing 'self' as the target value</h2>
+
+    <div class="trigger" id="trigger_self">#trigger_self</div>
+
+  <pre style="display: block"><code>new Toggling({
+    trigger: '#trigger_self',
+    target: 'self',
+    handler: function() {
+      this.toggleClass(this.target, 'active');
+    }
+  });
+  </code></pre>
+  </div>
+
+  <div class="container">
+    <h2>Target could also be declared in template using custom attribute: data-toggling="target-selector"</h2>
+
+    <div class="wrapper">
+      <div class="trigger" id="trigger_foz" data-toggling="#target_foz">#trigger_foz</div>
+
+  <pre id="target_foz"><code>new Toggling({
+    trigger: '#trigger_foz',
+    handler: function(tar, tri) {
+      this.toggle(tar);
+    }
+  });
+  </code></pre>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Toggling first looks for adjacent or descendant target element according to trigger element. So that you can use it for multiple trigger-target pairs with same selectors.</h2>
+
     <div class="clearfix">
-      <div class="trigger open">.open</div>
-      <div class="trigger close" data-toggling="#target_bar">.close</div>
-      <div class="trigger toggle" data-toggling="#target_bar">.toggle</div>
+      <div class="col col-6">
+        <div class="trigger trigger-scope">.trigger</div>
+        <div class="target target-scope">.target</div>
+      </div>
+
+      <div class="col col-6">
+        <div class="trigger trigger-scope">.trigger</div>
+        <div class="target target-scope">.target</div>
+      </div>
     </div>
 
-<pre id="target_bar"><code>// Open the target
-new Toggling({
-  trigger: '.open',
-  target: '#target_bar',
-  handler: function(tar) {
-    this.show(tar);
-  }
-});
-
-// Close the target
-new Toggling({
-  trigger: '.close',
-  target: '#target_bar',
-  handler: function(tar) {
-    this.hide(tar);
-  }
-});
-
-// Toggle the target
-new Toggling({
-  trigger: '.toggle',
-  target: '#target_bar',
-  handler: function(tar) {
-    this.toggle(tar);
-  }
-});
-</code></pre>
+  <pre style="display: block"><code>new Toggling({
+    trigger: '.trigger',
+    target: '.target',
+    handler: function(tar, tri) {
+      this.toggleClass(tri, 'active');
+      this.toggle(tar);
+    }
+  });
+  </code></pre>
   </div>
-</div>
 
-<div class="container">
-  <h2>Self-trigger, passing 'self' as the target value</h2>
+  <div class="container">
+    <h2>Pass 'html' as trigger, so that you can now trigger the event ( Close popup ) by clicking anywhere on screen</h2>
 
-  <div class="trigger" id="trigger_self">#trigger_self</div>
+    <div class="wrapper">
+      <div class="trigger" id="trigger-exclude">#trigger_baz</div>
 
-<pre style="display: block"><code>new Toggling({
-  trigger: '#trigger_self',
-  target: 'self',
-  handler: function() {
-    this.toggleClass(this.target, 'active');
-  }
-});
-</code></pre>
-</div>
+  <pre id="target-exclude"><code>// Open the target
+  new Toggling({
+    trigger: '#trigger_baz',
+    target: '#target_baz',
+    handler: function(tar, tri) {
+      this.toggle(tar);
+    }
+  });
 
-<div class="container">
-  <h2>Target could also be declared in template using custom attribute: data-toggling="target-selector"</h2>
-
-  <div class="wrapper">
-    <div class="trigger" id="trigger_foz" data-toggling="#target_foz">#trigger_foz</div>
-
-<pre id="target_foz"><code>new Toggling({
-  trigger: '#trigger_foz',
-  handler: function(tar, tri) {
-    this.toggle(tar);
-  }
-});
-</code></pre>
-  </div>
-</div>
-
-<div class="container">
-  <h2>Toggling first looks for adjacent or descendant target element according to trigger element. So that you can use it for multiple trigger-target pairs with same selectors.</h2>
-
-  <div class="clearfix">
-    <div class="col col-6">
-      <div class="trigger trigger-scope">.trigger</div>
-      <div class="target target-scope">.target</div>
-    </div>
-
-    <div class="col col-6">
-      <div class="trigger trigger-scope">.trigger</div>
-      <div class="target target-scope">.target</div>
+  // Close the target by clicking on html
+  new Toggling({
+    trigger: 'html',
+    excluded: '#trigger_baz',
+    target: '#target_baz',
+    handler: function(tar, tri) {
+      this.hide(tar);
+    }
+  });
+  </code></pre>
     </div>
   </div>
 
-<pre style="display: block"><code>new Toggling({
-  trigger: '.trigger',
-  target: '.target',
-  handler: function(tar, tri) {
-    this.toggleClass(tri, 'active');
-    this.toggle(tar);
-  }
-});
-</code></pre>
-</div>
+  <div class="container">
+    <h2>A common full screen popup demo</h2>
 
-<div class="container">
-  <h2>Pass 'html' as trigger, so that you can now trigger the event ( Close popup ) by clicking anywhere on screen</h2>
+    <div class="trigger" id="popup-trigger">Trigger</div>
 
-  <div class="wrapper">
-    <div class="trigger" id="trigger-exclude">#trigger_baz</div>
+    <div id="popup-target">
+      <div class="table-cell">
+        <div class="content">
+          <h2>Target</h2>
+          <h3>You can close this pop-up box by clicking anywhere on screen but not the this area. Because this element has been excluded from triggering the event.</h3>
 
-<pre id="target-exclude"><code>// Open the target
-new Toggling({
-  trigger: '#trigger_baz',
-  target: '#target_baz',
-  handler: function(tar, tri) {
-    this.toggle(tar);
-  }
-});
+  <pre style="display: block"><code>new Toggling({
+    trigger: '#trigger_popup',
+    target: '#target_popup',
+    handler: function() {
+      this.addClass(this.target, 'active');
+    }
+  });
 
-// Close the target by clicking on html
-new Toggling({
-  trigger: 'html',
-  excluded: '#trigger_baz',
-  target: '#target_baz',
-  handler: function(tar, tri) {
-    this.hide(tar);
-  }
-});
-</code></pre>
-  </div>
-</div>
-
-<div class="container">
-  <h2>A common full screen popup demo</h2>
-
-  <div class="trigger" id="popup-trigger">Trigger</div>
-
-  <div id="popup-target">
-    <div class="table-cell">
-      <div class="content">
-        <h2>Target</h2>
-        <h3>You can close this pop-up box by clicking anywhere on screen but not the this area. Because this element has been excluded from triggering the event.</h3>
-
-<pre style="display: block"><code>new Toggling({
-  trigger: '#trigger_popup',
-  target: '#target_popup',
-  handler: function() {
-    this.addClass(this.target, 'active');
-  }
-});
-
-new Toggling({
-  trigger: '#target_popup',
-  target: 'self',
-  excluded: '.content',
-  handler: function() {
-    this.removeClass(this.target, 'active');
-  }
-});
-</code></pre>
+  new Toggling({
+    trigger: '#target_popup',
+    target: 'self',
+    excluded: '.content',
+    handler: function() {
+      this.removeClass(this.target, 'active');
+    }
+  });
+  </code></pre>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<a class="github" href="https://github.com/77Vincent/toggling">
-  <img src="http://7xr7xo.com1.z0.glb.clouddn.com/icon-github.png">
-<a>
+  <div class="icons-bottom">
+    <a class="icon" href="https://www.npmjs.com/package/toggling">
+      <img src="http://7xr7xo.com1.z0.glb.clouddn.com/icon-npm.png">
+    </a>
+    <a class="icon" href="https://github.com/77Vincent/toggling">
+      <img src="http://7xr7xo.com1.z0.glb.clouddn.com/icon-github.png">
+    </a>
+  </div>
 
-<div class="container motivation">
-  <h2>Motivation</h2>
-  <p class="insert"></p>
+  <div class="container motivation">
+    <h2>Motivation</h2>
+    <p class="insert"></p>
+  </div>
 </div>
 
 <script src="toggling.js"></script>
