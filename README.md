@@ -25,6 +25,8 @@ npm install --save toggling
 
 ```js
 import Toggling from 'toggling';
+//or
+var Toggling = require('toggling');
 
 new Toggling({
     trigger: 'trigger-selector',    // required
