@@ -1,0 +1,164 @@
+///////////////////////////////////////////
+// Native
+///////////////////////////////////////////
+html {
+  font-family: monospace;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 1.25em;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+pre {
+  display: none;
+}
+
+code {
+  text-align: left;
+  font-size: 12px;
+  display: none;
+  border-radius: 7px;
+  background-color: whitesmoke !important;
+  padding: 20px !important;
+}
+
+///////////////////////////////////////////
+// Containers
+///////////////////////////////////////////
+.master-container {
+  margin: 0 auto;
+  max-width: 600px;
+  padding-bottom: 60px;
+}
+
+.container {
+  text-align: center;
+  margin: 60px 0;
+}
+
+.wrapper {
+  margin: 30px 0;
+}
+
+.title {
+  text-align: center;
+
+  h1 {
+    font-size: 3.3em;
+  }
+}
+
+.icon {
+    display: inline-block;
+}
+
+.icons-top {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: auto;
+
+  .icon {
+    max-width: 30px;
+    margin-left: 5px;
+  }
+}
+
+.icons-bottom {
+  text-align: center;
+
+  .icon {
+    max-width: 50px;
+    margin: 0 5px;
+  }
+}
+
+///////////////////////////////////////////
+// Trigger
+///////////////////////////////////////////
+.trigger {
+  padding: 10px;
+  cursor: pointer;
+  background-color: black;
+  border-radius: 7px;
+  color: white;
+
+  &.active {
+    background-color: gold;
+    color: #000;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+#trigger-self.active {
+  background-color: gold;
+  color: black;
+}
+
+.open,
+.close,
+.toggle {
+  float: left;
+  width: 32%;
+  margin: 0 0.65%;
+}
+
+.col {
+  padding: 5px;
+}
+
+///////////////////////////////////////////
+// Target
+///////////////////////////////////////////
+.target {
+  display: none;
+  border: 1px solid gray;
+  border-radius: 7px;
+  margin-top: 10px;
+  padding: 30px 0;
+}
+
+#popup-target {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(255,255,255,0.95);
+  text-align: center;
+
+  &.active {
+    display: table;
+  }
+
+  .table-cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .content {
+    background-color: black;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    color: white;
+    border-radius: 7px;
+  }
+}

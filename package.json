@@ -6,7 +6,8 @@
   "scripts": {
     "eslint": "esw -w toggling.js",
     "server": "http-server -o -s -c-1",
-    "start": "concurrently \"npm run eslint\" \"npm run server\"",
+    "sass": "node-sass -w ./demo/demo.scss -o ./demo",
+    "start": "concurrently \"npm run eslint\" \"npm run server\" \"npm run sass\"",
     "test": "eslint toggling.js",
     "uglify": "uglifyjs toggling.js -m -o toggling.min.js"
   },
@@ -39,6 +40,7 @@
     "eslint": "^3.16.1",
     "eslint-watch": "^3.0.0",
     "http-server": "^0.9.0",
+    "node-sass": "^4.5.2",
     "scaffold.css": "^1.1.0",
     "uglify-js": "^2.8.4"
   }
