@@ -11,7 +11,7 @@
 
     "prestart": "npm install",
     "start": "concurrently \"npm run eslint\" \"npm run reload\" \"npm run sass\"",
-    "prepublish": "npm run uglify && git add . && git commit -m 'publish'",
+    "prepublish": "npm run uglify && git add --all && git commit -m 'publish'",
     "test": "eslint toggling.js"
   },
   "repository": {
